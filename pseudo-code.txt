@@ -1,0 +1,42 @@
+   VARIABLES
+slides <- [
+    { image: 'slide1.jpg', caption: "Impressions tous formats <span>en boutique et en ligne</span>" },
+    { image: 'slide2.jpg', caption: "Tirages haute définition grand format <span>pour vos bureaux et events</span>" },
+    { image: 'slide3.jpg', caption: "Grand choix de couleurs <span>de CMJN aux pantones</span>" },
+    { image: 'slide4.jpg', caption: "Autocollants <span>avec découpe laser sur mesure</span>" }
+]
+currentIndex <- 0
+arrowLeft <- élément DOM pour la flèche gauche
+arrowRight <- élément DOM pour la flèche droite
+bulletPoints <- éléments DOM pour les indicateurs de diapositive
+FONCTIONS
+afficherSlide(index) :
+    Mettre à jour l'image et la légende en fonction de slides[index]
+    Mettre à jour le bullet point actif
+défilerAutomatiquement() :
+    Toutes les 5 secondes, faire défiler vers la diapositive suivante
+    Réinitialiser si on atteint la fin du tableau slides
+gérerClicFlècheGauche() :
+    Si currentIndex > 0 :
+        currentIndex--
+    Sinon :
+        currentIndex <- longueur(slides) - 1
+    afficherSlide(currentIndex)
+gérerClicFlècheDroite() :
+    Si currentIndex < longueur(slides) - 1 :
+        currentIndex++
+    Sinon :
+        currentIndex <- 0
+    afficherSlide(currentIndex)
+INITIALISATION
+attacher gérerClicFlècheGauche à l'événement 'click' de arrowLeft
+attacher gérerClicFlècheDroite à l'événement 'click' de arrowRight
+défilerAutomatiquement()
+
+Explications :
+Variables : On structure slides en tant que tableau d'objets contenant à la fois l'image et la légende. 
+currentIndex suit la diapositive actuelle.
+Fonctions :afficherSlide met à jour l'image, la légende et le bullet point actif.
+défilerAutomatiquement fait défiler les diapositives toutes les 5 secondes (ou toute autre durée que vous souhaitez).
+gérerClicFlècheGauche et gérerClicFlècheDroite gèrent les clics sur les flèches, avec une logique pour boucler le carrousel.
+Initialisation : Les événements de clic sont attachés aux flèches, et le défilement automatique est activé au démarrage.
