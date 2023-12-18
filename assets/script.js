@@ -43,13 +43,6 @@ function afficherSlides(currentIndex) {
   document.querySelector("p").innerHTML = tagLine;
 }
 
-//Faire défiler automatiquement le clic droit pour avoir un défilement
-//sans clic de toutes les images.
-
-function défilerAuto() {
-  setInterval(gérerClicDroit, 5000);
-}
-
 //Fonction du clic droit
 function gérerClicDroit() {
   if (currentIndex < slides.length - 1) {
@@ -75,7 +68,6 @@ function gérerClicGauche() {
 arrowL.addEventListener("click", gérerClicGauche);
 //Au clic sur l'image de flèche droite, avancée d'une image.
 arrowR.addEventListener("click", gérerClicDroit);
-//Appel de la fonction pour le défilement automatique.
-défilerAuto();
+
 //Appel de la fonction permettant la maj du bullet point et du slide
 afficherSlides(currentIndex);
